@@ -21,7 +21,6 @@ class FakeStoreApiClient {
     }
 
     suspend fun getAllProducts(): ProductsResponse {
-        delay(1000L)
         return client.get("https://dummyjson.com/products").body()
     }
 }
