@@ -18,7 +18,7 @@ fun ProductsScreen(viewModel: ProductsViewModel = viewModel()) {
     val products by viewModel.products.collectAsState()
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
