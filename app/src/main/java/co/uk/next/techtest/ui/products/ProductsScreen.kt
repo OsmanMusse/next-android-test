@@ -17,9 +17,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import co.uk.next.techtest.ui.products.components.ProductCard
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun ProductsScreen(viewModel: ProductsViewModel = viewModel()) {
+fun ProductsScreen(
+    viewModel: ProductsViewModel = koinViewModel(),
+    onProductClick: () -> Unit
+) {
     val products by viewModel.products.collectAsState()
 
     Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
@@ -34,7 +38,7 @@ fun ProductsScreen(viewModel: ProductsViewModel = viewModel()) {
             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp)
         ) {
             items(products) { product ->
-                ProductCard(product)
+                ProductCard(product = product, onProductClick = onProductClick)
             }
         }
     }
