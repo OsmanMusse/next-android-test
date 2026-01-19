@@ -12,6 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import co.uk.next.techtest.data.Product
 
 @Composable
 fun ProductsScreen(viewModel: ProductsViewModel = viewModel()) {
@@ -24,8 +25,13 @@ fun ProductsScreen(viewModel: ProductsViewModel = viewModel()) {
                 .padding(paddingValues)
         ) {
             items(products) { product ->
-                Text(text = product.title, color = MaterialTheme.colorScheme.onSurface)
+                ProductListItem(product)
             }
         }
     }
+}
+
+@Composable
+fun ProductListItem(product: Product){
+    Text(text = product.title, color = MaterialTheme.colorScheme.onSurface)
 }
