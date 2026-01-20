@@ -19,7 +19,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import co.uk.next.techtest.domain.model.Product
-import co.uk.next.techtest.ui.productdetails.StarsRow
 
 @Composable
 fun ProductHeaderSection(product: Product) {
