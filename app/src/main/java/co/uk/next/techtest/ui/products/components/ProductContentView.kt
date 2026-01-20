@@ -6,7 +6,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import co.uk.next.techtest.data.Product
+import co.uk.next.techtest.domain.model.Product
+
 
 @Composable
 fun ProductContentView(product: Product){
