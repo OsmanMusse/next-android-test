@@ -15,14 +15,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import co.uk.next.techtest.ui.products.components.ProductCard
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ProductsScreen(
     viewModel: ProductsViewModel = koinViewModel(),
-    onProductClick: () -> Unit
+    onProductClick: (id: Int) -> Unit
 ) {
     val products by viewModel.products.collectAsState()
 
@@ -38,7 +37,7 @@ fun ProductsScreen(
             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 10.dp)
         ) {
             items(products) { product ->
-                ProductCard(product = product, onProductClick = onProductClick)
+                ProductCard(product = product, onProductClick = { onProductClick(product.id)})
             }
         }
     }
