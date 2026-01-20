@@ -16,7 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import co.uk.next.techtest.ui.products.components.ProductCard
+import co.uk.next.techtest.ui.products.components.ProductsTopAppBar
 import org.koin.androidx.compose.koinViewModel
+
 
 @Composable
 fun ProductsScreen(
@@ -25,7 +27,12 @@ fun ProductsScreen(
 ) {
     val products by viewModel.products.collectAsState()
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            ProductsTopAppBar()
+        }
+    ) { paddingValues ->
         LazyVerticalGrid(
             modifier = Modifier
                 .fillMaxSize()
